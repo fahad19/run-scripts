@@ -13,6 +13,9 @@
   "files": [
     "index.js"
   ],
+  "bin": {
+    "run-scripts": "bin/run-scripts"
+  },
   "keywords": [
     "npm",
     "scripts",
