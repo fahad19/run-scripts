@@ -16,9 +16,9 @@ In your `package.json` file, you may already have pre-defined scripts:
 ```json
 {
   "scripts": {
-    "command1": "command 1",
-    "command2": "command 2",
-    "command3": "command 3"
+    "command1": "echo 1",
+    "command2": "echo 2",
+    "command3": "echo 3"
   }
 }
 ```
@@ -39,7 +39,7 @@ If you wish not to install the module globally, you can do this:
 
 ```sh
 $ npm install --save-dev run-scripts
-$ ./node_modues/.bin/run-scripts command1 command2 command3
+$ ./node_modules/.bin/run-scripts command1 command2 command3
 ```
 
 ## License

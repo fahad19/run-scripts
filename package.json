@@ -1,6 +1,6 @@
 {
   "name": "run-scripts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Run multiple npm scripts sequentially in one go.",
   "homepage": "https://github.com/fahad19/run-scripts",
   "author": {
