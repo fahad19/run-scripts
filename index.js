@@ -5,9 +5,7 @@ module.exports = function (scripts) {
 		return;
 	}
 
-	return scripts
-		.map(function (script) {
-			return 'npm run ' + script;
-		})
-		.join(' && ');
+	return scripts.map(function (script) {
+		return 'npm run ' + script;
+	});
 };

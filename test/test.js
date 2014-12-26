@@ -5,9 +5,13 @@ var runScripts = require('../');
 
 describe('run-scripts node module', function () {
 	it('must produce full command', function () {
-		assert.equal(
+		assert.deepEqual(
 			runScripts(['one', 'two', 'three']),
-			'npm run one && npm run two && npm run three'
+			[
+				'npm run one',
+				'npm run two',
+				'npm run three'
+			]
 		);
 	});
 });
