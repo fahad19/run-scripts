@@ -1,6 +1,6 @@
 {
   "name": "run-scripts",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Run multiple npm scripts sequentially in one go.",
   "homepage": "https://github.com/fahad19/run-scripts",
   "author": {
@@ -29,6 +29,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/jshint *.js test/*.js bin/*",
     "mocha": "./node_modules/.bin/mocha test/*.js",
-    "test": "npm run lint && npm run mocha"
+    "test-script1": "echo 1",
+    "test-script2": "echo 2",
+    "test": "npm run lint && npm run mocha && ./bin/run-scripts test-script1 test-script2"
   }
 }

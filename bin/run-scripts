@@ -2,7 +2,6 @@
 
 'use strict';
 
-var async = require('async');
 
 var scripts = process.argv.slice(2);
 if (scripts.length === 0) {
@@ -13,12 +12,12 @@ if (scripts.length === 0) {
 var runScripts = require('../');
 var commands = runScripts(scripts);
 
+var async = require('async');
+var run = require('../run');
 var sys = require('sys');
-var exec = require('child_process').exec;
-
 async.series(commands.map(function (command) {
 	return function (callback) {
-		exec(command, function (error, stdout, stderr) {
+		run(command, function (error, stdout, stderr) {
 			sys.print(stdout);
 			sys.print(stderr);
 
