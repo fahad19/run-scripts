@@ -25,7 +25,12 @@ async.series(commands.map(function (command) {
 				console.log('exec error: ' + error);
 			}
 
-			callback();
+			callback(error);
 		});
 	};
-}));
+}), function (error) {
+	if (typeof error === 'undefined' || typeof error.code === 'undefined') {
+		return;
+	}
+	process.exit(error.code);
+});

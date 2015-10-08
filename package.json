@@ -29,8 +29,11 @@
   "scripts": {
     "lint": "./node_modules/.bin/jshint *.js test/*.js bin/*",
     "mocha": "./node_modules/.bin/mocha test/*.js",
-    "test-script1": "echo 1",
-    "test-script2": "echo 2",
-    "test": "npm run lint && npm run mocha && ./bin/run-scripts test-script1 test-script2"
+    "script:success-one": "echo 'Success one'",
+    "script:success-two": "echo 'Success two'",
+    "script:failure": "echo 'Failure' && exit 1",
+    "test": "npm run lint && npm run mocha && npm run test:success && npm run test:failure",
+    "test:success": "./bin/run-scripts script:success-one script:success-two",
+    "test:failure": "! ./bin/run-scripts script:success-one script:failure"
   }
 }
