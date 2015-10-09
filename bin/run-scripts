@@ -2,7 +2,6 @@
 
 'use strict';
 
-
 var scripts = process.argv.slice(2);
 if (scripts.length === 0) {
 	console.log('You need to pass some commands as arguments.');
@@ -11,25 +10,13 @@ if (scripts.length === 0) {
 
 var runScripts = require('../');
 var commands = runScripts(scripts);
+var asyncRun = require('../async-run');
 
-var async = require('async');
-var run = require('../run');
-var sys = require('sys');
-async.series(commands.map(function (command) {
-	return function (callback) {
-		run(command, function (error, stdout, stderr) {
-			sys.print(stdout);
-			sys.print(stderr);
+asyncRun(commands, function (error, stdout, stderr) {
+	console.log(stdout);
+	console.error(stderr);
 
-			if (error !== null) {
-				console.log('exec error: ' + error);
-			}
-
-			callback(error);
-		});
-	};
-}), function (error) {
-	if (typeof error === 'undefined' || typeof error.code === 'undefined') {
+	if (error === null) {
 		return;
 	}
 	process.exit(error.code);
